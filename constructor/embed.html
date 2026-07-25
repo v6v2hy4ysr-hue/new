@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=780, height=720">
   <title>Конструктор памятников</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="embed.css?v=7">
+  <link rel="stylesheet" href="embed.css?v=8">
 </head>
 <body>
 <div class="gradex-constructor-wrap wrap_calc">
@@ -202,66 +202,107 @@
     <input type="hidden" name="l_epitaph" value="/images/calc/ep/e00.png"/>
     <input type="hidden" name="action" value="manager"/>
     <button id="manager" type="button" class="btn btn-success">
-      <i class="fa fa-paper-plane" aria-hidden="true"></i> Отправить менеджеру
+      <svg class="ico-plane" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      Отправить менеджеру
     </button>
   </div>
 
-  <div id="rdr-modal" class="iziModal">
-    <div class="container-fluid">
-      <div class="form-group">
-        <label for="name">Ваше имя:</label>
-        <input name="name" id="name" class="form-control" type="text" placeholder="Василий" required/>
+  <div id="embed-modal" class="embed-modal" hidden>
+    <div class="embed-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="embed-modal-title">
+      <div class="embed-modal__header">
+        <span id="embed-modal-title">Отправить менеджеру</span>
+        <button type="button" class="embed-modal__close" id="embed-modal-close" aria-label="Закрыть">&times;</button>
       </div>
-      <div class="form-group">
-        <label for="email">E mail:</label>
-        <input name="email" id="email" class="form-control" type="email" placeholder="vasili@mail.ru" required/>
-      </div>
-      <div class="form-group">
-        <label for="phone">Телефон:</label>
-        <input name="phone" id="phone" class="form-control" type="tel" placeholder="8-900-999-99-99"/>
-      </div>
-      <div class="form-group">
-        <label for="message">Примечание:</label>
-        <textarea rows="3" name="message" id="message" class="form-control" placeholder="Например, надо разместить на памятнике 3 портрета + дополнительный рисунок на оборотной стороне"></textarea>
-      </div>
-      <div class="buttons clearfix">
-        <button id="sendform" type="submit" onclick="try{yaCounter38341515.reachGoal('kalkul');}catch(e){} return true;" data-loading-text="Подождите..." class="btn btn-success pull-right">
-          <i class="fa fa-paper-plane" aria-hidden="true"></i> Отправить
-        </button>
+      <div class="embed-modal__body">
+        <div class="form-group">
+          <label for="name">Ваше имя:</label>
+          <input name="name" id="name" class="form-control" type="text" placeholder="Василий" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E mail:</label>
+          <input name="email" id="email" class="form-control" type="email" placeholder="vasili@mail.ru" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон:</label>
+          <input name="phone" id="phone" class="form-control" type="tel" placeholder="8-900-999-99-99">
+        </div>
+        <div class="form-group">
+          <label for="message">Примечание:</label>
+          <textarea rows="3" name="message" id="message" class="form-control" placeholder="Например, надо разместить на памятнике 3 портрета + дополнительный рисунок на оборотной стороне"></textarea>
+        </div>
+        <div class="embed-modal__actions">
+          <button id="sendform" type="submit" onclick="try{yaCounter38341515.reachGoal('kalkul');}catch(e){} return true;" class="btn btn-success">
+            <svg class="ico-plane" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Отправить
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  <div id="alertModal" class="iziModal" data-izimodal-group="alerts"></div>
+
+  <div id="embed-alert" class="embed-modal" hidden>
+    <div class="embed-modal__dialog embed-modal__dialog--alert" role="dialog" aria-modal="true">
+      <div class="embed-modal__header embed-modal__header--ok">
+        <span>Успешно отправлено</span>
+        <button type="button" class="embed-modal__close" id="embed-alert-close" aria-label="Закрыть">&times;</button>
+      </div>
+      <div class="embed-modal__body">
+        <p class="embed-alert-text">Заявка отправлена. Мы свяжемся с вами.</p>
+      </div>
+    </div>
+  </div>
 </form>
 </div>
 <script src="script.js"></script>
 <script>
 jQuery(function ($) {
+  var $modal = $('#embed-modal');
+  var $alert = $('#embed-alert');
+
+  function openModal() { $modal.prop('hidden', false); }
+  function closeModal() { $modal.prop('hidden', true); }
+  function openAlert() { $alert.prop('hidden', false); }
+  function closeAlert() { $alert.prop('hidden', true); }
+
   $(document).off('click', '#manager, #saveimage, #print');
-  $(document).on('click', '#manager, #saveimage, #print', function (e) {
+  $(document).on('click', '#manager', function (e) {
     e.preventDefault();
-    $('#calcform').find('input[name="action"]').val($(this).attr('id'));
-    if ($('#rdr-modal').data('iziModal')) {
-      try { $('#rdr-modal').iziModal('destroy'); } catch (err) {}
-    }
-    $('#rdr-modal').iziModal({
-      title: $.trim($(this).text().replace(/\s+/g, ' ')),
-      headerColor: '#8B1E1B',
-      history: false,
-      width: 400,
-      padding: 0,
-      radius: 4,
-      zindex: 99999,
-      overlayColor: 'rgba(0,0,0,0.45)',
-      transitionIn: 'fadeInDown',
-      transitionOut: 'fadeOutUp',
-      appendTo: 'body',
-      appendToOverlay: 'body',
-      onClosed: function () {
-        try { $('#rdr-modal').iziModal('destroy'); } catch (err) {}
+    e.stopImmediatePropagation();
+    $('#calcform').find('input[name="action"]').val('manager');
+    openModal();
+  });
+
+  $('#embed-modal-close').on('click', closeModal);
+  $('#embed-alert-close').on('click', closeAlert);
+  $modal.on('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+  $alert.on('click', function (e) {
+    if (e.target === this) closeAlert();
+  });
+
+  // Перехватываем submit: та же отправка, своя модалка успеха
+  $(document).off('submit', '#calcform');
+  $('#calcform').on('submit', function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $form = $(this);
+    $.ajax({
+      url: 'https://www.grad-ex.ru/konstruktor-pamyatnikov?format=json',
+      type: 'post',
+      data: $form.serialize(),
+      processData: false,
+      dataType: 'json',
+      success: function () {
+        $form.find('input[type=text], input[type=tel], input[type=email], textarea').val('');
+        closeModal();
+        openAlert();
+        setTimeout(closeAlert, 4000);
+      },
+      error: function () {
+        alert('Не удалось отправить заявку. Попробуйте ещё раз.');
       }
     });
-    $('#rdr-modal').iziModal('open');
   });
 });
 </script>

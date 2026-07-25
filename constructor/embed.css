@@ -254,129 +254,151 @@ html, body {
   border-radius: 19px !important;
 }
 
-/* Модалка внутри iframe — по центру и целиком в кадре */
-.iziModal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 9998 !important;
+/* ===== Custom modal (вместо iziModal) ===== */
+.embed-modal[hidden] {
+  display: none !important;
 }
 
-.iziModal-wrap {
+.embed-modal {
   position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 16px !important;
+  inset: 0 !important;
+  z-index: 100000 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  padding: 16px !important;
+  background: rgba(0, 0, 0, 0.45) !important;
   box-sizing: border-box !important;
-  z-index: 9999 !important;
-  overflow: hidden !important;
 }
 
-.iziModal-wrap .iziModal,
-#rdr-modal.iziModal,
-#alertModal.iziModal,
-.iziModal {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 auto !important;
-  transform: none !important;
-  width: 400px !important;
-  max-width: calc(100% - 8px) !important;
-  max-height: calc(100% - 8px) !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  box-sizing: border-box !important;
-  font-family: Helvetica, Arial, sans-serif !important;
-}
-
-.iziModal-header {
-  font-family: Helvetica, Arial, sans-serif !important;
-}
-
-#rdr-modal .container-fluid {
-  width: 100% !important;
+.embed-modal__dialog {
+  width: 420px !important;
   max-width: 100% !important;
-  padding: 12px 14px 14px !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
+  max-height: calc(100% - 16px) !important;
+  overflow: auto !important;
+  background: #fff !important;
+  border-radius: 6px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25) !important;
+  font-family: Helvetica, Arial, sans-serif !important;
 }
 
-#rdr-modal .form-group {
+.embed-modal__dialog--alert {
+  width: 360px !important;
+}
+
+.embed-modal__header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 12px 14px !important;
+  background: #8B1E1B !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.embed-modal__header--ok {
+  background: #00af66 !important;
+}
+
+.embed-modal__close {
+  border: 0 !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  padding: 0 4px !important;
+  margin: 0 !important;
+}
+
+.embed-modal__body {
+  padding: 14px !important;
+}
+
+.embed-modal__body .form-group {
   margin: 0 0 10px !important;
   padding: 0 !important;
-  float: none !important;
-  clear: both !important;
 }
 
-#rdr-modal label {
+.embed-modal__body label {
   display: block !important;
   float: none !important;
   width: 100% !important;
-  text-align: left !important;
   margin: 0 0 4px !important;
+  text-align: left !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   font-family: Helvetica, Arial, sans-serif !important;
 }
 
-#rdr-modal input.form-control,
-#rdr-modal textarea.form-control {
+.embed-modal__body input.form-control,
+.embed-modal__body textarea.form-control {
   display: block !important;
   float: none !important;
   width: 100% !important;
   max-width: 100% !important;
   visibility: visible !important;
   opacity: 1 !important;
-  position: relative !important;
+  position: static !important;
   height: auto !important;
-  min-height: 32px !important;
+  min-height: 34px !important;
   line-height: 1.3 !important;
-  padding: 6px 10px !important;
+  padding: 7px 10px !important;
   margin: 0 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 3px !important;
   box-sizing: border-box !important;
   font-family: Helvetica, Arial, sans-serif !important;
+  font-size: 13px !important;
 }
 
-#rdr-modal textarea.form-control {
-  min-height: 70px !important;
+.embed-modal__body textarea.form-control {
+  min-height: 72px !important;
   resize: vertical !important;
 }
 
-#rdr-modal .buttons {
-  float: none !important;
-  clear: both !important;
-  width: 100% !important;
+.embed-modal__actions {
   text-align: center !important;
-  margin: 4px 0 0 !important;
-  padding: 0 !important;
+  margin-top: 6px !important;
 }
 
-#rdr-modal #sendform,
-#rdr-modal .btn.pull-right {
+.embed-modal__actions .btn,
+#sendform {
   float: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 6px !important;
-  width: auto !important;
-  max-width: 100% !important;
+  gap: 8px !important;
   margin: 0 auto !important;
-  padding: 8px 18px !important;
-  white-space: nowrap !important;
+  padding: 9px 20px !important;
+  background: #5cb85c !important;
+  border: 1px solid #4cae4c !important;
+  color: #fff !important;
+  border-radius: 4px !important;
   font-family: Helvetica, Arial, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.embed-alert-text {
+  margin: 0 !important;
+  text-align: center !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.ico-plane {
+  width: 16px !important;
+  height: 16px !important;
+  display: inline-block !important;
+  flex: 0 0 16px !important;
+  vertical-align: middle !important;
+}
+
+/* Отключить сломанный iziModal, если вдруг подтянется */
+.iziModal,
+.iziModal-overlay,
+.iziModal-wrap {
+  display: none !important;
 }
