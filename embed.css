@@ -1,4 +1,4 @@
-/* Ровная сетка 780×575: превью слева, поля справа 2 колонки, кнопка по центру */
+/* Единый ровный блок 780×575 — всё слева, кнопка по центру */
 
 html, body {
   margin: 0 !important;
@@ -7,101 +7,128 @@ html, body {
   height: 575px !important;
   overflow: hidden !important;
   background: #f4f2ef !important;
-  font-family: Roboto, Arial, Helvetica, sans-serif !important;
-  color: #222;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #222 !important;
 }
 
-.gradex-constructor-wrap {
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+.gradex-constructor-wrap.wrap_calc {
   width: 780px !important;
   max-width: 780px !important;
   height: 575px !important;
   margin: 0 !important;
-  padding: 12px !important;
-  box-sizing: border-box !important;
+  padding: 10px !important;
   background: #f4f2ef !important;
   overflow: hidden !important;
+  float: none !important;
 }
 
 #calcform {
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   background: transparent !important;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
 }
 
+/* Один блок: превью + поля */
 .embed-layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 14px;
-  flex: 1 1 auto;
-  min-height: 0;
-  align-items: stretch;
+  display: grid !important;
+  grid-template-columns: 280px 1fr !important;
+  gap: 12px !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
 }
 
 .embed-preview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  box-sizing: border-box;
-  overflow: hidden;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  border: 1px solid #ddd !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 4px !important;
 }
 
 .embed-preview .calc_images {
+  position: relative !important;
   float: none !important;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
-  background: #fff;
+  background: #fff !important;
+}
+
+.embed-preview .calc_images > div {
+  text-align: center !important;
+}
+
+.embed-preview .calc_images > div:not(:first-child) {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .embed-preview .calc_images > div > img {
-  max-height: 420px;
-  width: auto;
-  max-width: 100%;
+  max-height: 430px !important;
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-block !important;
 }
 
 .embed-fields {
-  min-width: 0;
-  overflow: hidden;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
+/* Ровная сетка полей — все в одну сторону */
 .embed-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 10px;
-  row-gap: 8px;
-  align-content: start;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 6px 10px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-content: start !important;
 }
 
 .embed-grid .form-group {
   margin: 0 !important;
   padding: 0 !important;
-  min-width: 0;
+  float: none !important;
+  clear: none !important;
+  width: auto !important;
+  text-align: left !important;
 }
 
 .embed-grid .embed-span-2 {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1 !important;
 }
 
 .embed-grid label {
   display: block !important;
   float: none !important;
   width: 100% !important;
-  margin: 0 0 3px !important;
+  margin: 0 0 2px !important;
   padding: 0 !important;
+  text-align: left !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
-  color: #111;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: #111 !important;
 }
 
 #calcform .nice-select,
@@ -110,78 +137,102 @@ html, body {
   float: none !important;
   display: block !important;
   width: 100% !important;
-  height: 30px !important;
-  min-height: 30px !important;
-  line-height: 30px !important;
+  max-width: 100% !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  line-height: 28px !important;
   font-size: 12px !important;
-  padding: 0 24px 0 10px !important;
+  padding: 0 22px 0 8px !important;
   margin: 0 !important;
+  text-align: left !important;
   border: 1px solid #ccc !important;
   border-radius: 3px !important;
   background: #fff !important;
-  box-sizing: border-box !important;
+}
+
+#calcform .nice-select .current {
+  display: block !important;
+  text-align: left !important;
 }
 
 #calcform .nice-select:after {
-  top: 14px !important;
-  right: 10px !important;
+  top: 13px !important;
+  right: 8px !important;
 }
 
 #calcform .nice-select .list {
-  max-height: 160px;
-  overflow-y: auto;
-  z-index: 60;
+  max-height: 150px !important;
+  overflow-y: auto !important;
+  text-align: left !important;
+  z-index: 100 !important;
 }
 
 #calcform .nice-select .option {
-  line-height: 28px;
-  min-height: 28px;
-  font-size: 12px;
+  line-height: 26px !important;
+  min-height: 26px !important;
+  font-size: 12px !important;
+  text-align: left !important;
 }
 
+/* Кнопка строго по центру всей ширины */
 .embed-actions {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2px;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 4px 0 0 !important;
+  text-align: center !important;
+  float: none !important;
+  clear: both !important;
 }
 
 #calcform button#manager,
-.wrap_calc button#manager {
+.wrap_calc button#manager,
+.embed-actions #manager {
   float: none !important;
   display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 260px !important;
-  max-width: none !important;
-  height: 42px !important;
-  line-height: 1 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 280px !important;
+  max-width: 280px !important;
+  height: 40px !important;
+  margin: 0 auto !important;
   padding: 0 16px !important;
-  margin: 0 !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
-  border-radius: 21px !important;
-  background-color: #5cb85c !important;
+  line-height: 1 !important;
+  border-radius: 20px !important;
+  background: #5cb85c !important;
   border: 1px solid #4cae4c !important;
   color: #fff !important;
+  text-align: center !important;
 }
 
+/* Сброс старых стилей сайта, которые ломают выравнивание */
 .wrap_calc #calcform .form-group {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  clear: none !important;
 }
 .wrap_calc form#calcform label {
   float: none !important;
-  width: auto !important;
+  width: 100% !important;
+  text-align: left !important;
 }
 .wrap_calc form#calcform select {
   float: none !important;
+}
+.wrap_calc button#manager {
+  float: none !important;
+  background: #5cb85c !important;
+  color: #fff !important;
+  border-radius: 20px !important;
 }
 
 .iziModal {
   max-width: 740px !important;
 }
-url(embed.css)
