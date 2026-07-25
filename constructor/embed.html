@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=780, height=575">
+  <meta name="viewport" content="width=780, height=720">
   <title>Конструктор памятников</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/v6v2hy4ysr-hue/new@main/constructor/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/v6v2hy4ysr-hue/new@main/constructor/embed.css?v=5">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="embed.css?v=7">
 </head>
 <body>
 <div class="gradex-constructor-wrap wrap_calc">
@@ -234,6 +234,36 @@
   <div id="alertModal" class="iziModal" data-izimodal-group="alerts"></div>
 </form>
 </div>
-<script src="https://cdn.jsdelivr.net/gh/v6v2hy4ysr-hue/new@main/constructor/script.js"></script>
+<script src="script.js"></script>
+<script>
+jQuery(function ($) {
+  $(document).off('click', '#manager, #saveimage, #print');
+  $(document).on('click', '#manager, #saveimage, #print', function (e) {
+    e.preventDefault();
+    $('#calcform').find('input[name="action"]').val($(this).attr('id'));
+    if ($('#rdr-modal').data('iziModal')) {
+      try { $('#rdr-modal').iziModal('destroy'); } catch (err) {}
+    }
+    $('#rdr-modal').iziModal({
+      title: $.trim($(this).text().replace(/\s+/g, ' ')),
+      headerColor: '#8B1E1B',
+      history: false,
+      width: 400,
+      padding: 0,
+      radius: 4,
+      zindex: 99999,
+      overlayColor: 'rgba(0,0,0,0.45)',
+      transitionIn: 'fadeInDown',
+      transitionOut: 'fadeOutUp',
+      appendTo: 'body',
+      appendToOverlay: 'body',
+      onClosed: function () {
+        try { $('#rdr-modal').iziModal('destroy'); } catch (err) {}
+      }
+    });
+    $('#rdr-modal').iziModal('open');
+  });
+});
+</script>
 </body>
 </html>
