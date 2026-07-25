@@ -131,19 +131,39 @@ html, body {
   font-family: Helvetica, Arial, sans-serif !important;
 }
 
-/* ВАЖНО: скрыть родной select — иначе дубль с nice-select */
-#calcform select.form-control,
-#calcform select {
+/* Показываем только нативный select — nice-select отключаем */
+#calcform .nice-select {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
-  width: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  border: 0 !important;
-  position: absolute !important;
-  opacity: 0 !important;
+  overflow: hidden !important;
   pointer-events: none !important;
+}
+
+#calcform select.form-control,
+#calcform select {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  float: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  line-height: 28px !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  font-size: 12px !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+  pointer-events: auto !important;
+  -webkit-appearance: menulist !important;
+  appearance: menulist !important;
 }
 
 #calcform .nice-select,
@@ -215,7 +235,6 @@ html, body {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
   width: 280px !important;
   max-width: 280px !important;
   height: 38px !important;
@@ -371,7 +390,6 @@ html, body {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
   margin: 0 auto !important;
   padding: 9px 20px !important;
   background: #5cb85c !important;
@@ -386,14 +404,6 @@ html, body {
   margin: 0 !important;
   text-align: center !important;
   font-family: Helvetica, Arial, sans-serif !important;
-}
-
-.ico-plane {
-  width: 16px !important;
-  height: 16px !important;
-  display: inline-block !important;
-  flex: 0 0 16px !important;
-  vertical-align: middle !important;
 }
 
 /* Отключить сломанный iziModal, если вдруг подтянется */

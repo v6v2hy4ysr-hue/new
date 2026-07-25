@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=780, height=720">
   <title>Конструктор памятников</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="embed.css?v=8">
+  <link rel="stylesheet" href="embed.css?v=9">
 </head>
 <body>
 <div class="gradex-constructor-wrap wrap_calc">
@@ -201,9 +201,7 @@
     <input type="hidden" name="e_krest" value="/images/calc/krest/k00.png"/>
     <input type="hidden" name="l_epitaph" value="/images/calc/ep/e00.png"/>
     <input type="hidden" name="action" value="manager"/>
-    <button id="manager" type="button" class="btn btn-success">
-      <svg class="ico-plane" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-      Отправить менеджеру
+    <button id="manager" type="button" class="btn btn-success"> Отправить менеджеру
     </button>
   </div>
 
@@ -231,9 +229,7 @@
           <textarea rows="3" name="message" id="message" class="form-control" placeholder="Например, надо разместить на памятнике 3 портрета + дополнительный рисунок на оборотной стороне"></textarea>
         </div>
         <div class="embed-modal__actions">
-          <button id="sendform" type="submit" onclick="try{yaCounter38341515.reachGoal('kalkul');}catch(e){} return true;" class="btn btn-success">
-            <svg class="ico-plane" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            Отправить
+          <button id="sendform" type="submit" onclick="try{yaCounter38341515.reachGoal('kalkul');}catch(e){} return true;" class="btn btn-success"> Отправить
           </button>
         </div>
       </div>
@@ -254,11 +250,32 @@
 </form>
 </div>
 <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+/* Отключаем nice-select ДО document.ready */
+jQuery.fn.niceSelect = function () { return this; };
+</script>
 <script>
 jQuery(function ($) {
+  function killNiceSelect() {
+    $('#calcform .nice-select').remove();
+    $('#calcform select').each(function () {
+      var el = this;
+      el.style.setProperty('display', 'block', 'important');
+      el.style.setProperty('visibility', 'visible', 'important');
+      el.style.setProperty('opacity', '1', 'important');
+      el.style.setProperty('position', 'static', 'important');
+      el.style.setProperty('height', '28px', 'important');
+      el.style.setProperty('width', '100%', 'important');
+      el.style.setProperty('pointer-events', 'auto', 'important');
+    });
+  }
+  killNiceSelect();
+  setTimeout(killNiceSelect, 0);
+  setTimeout(killNiceSelect, 100);
+
   var $modal = $('#embed-modal');
   var $alert = $('#embed-alert');
-
   function openModal() { $modal.prop('hidden', false); }
   function closeModal() { $modal.prop('hidden', true); }
   function openAlert() { $alert.prop('hidden', false); }
@@ -274,14 +291,9 @@ jQuery(function ($) {
 
   $('#embed-modal-close').on('click', closeModal);
   $('#embed-alert-close').on('click', closeAlert);
-  $modal.on('click', function (e) {
-    if (e.target === this) closeModal();
-  });
-  $alert.on('click', function (e) {
-    if (e.target === this) closeAlert();
-  });
+  $modal.on('click', function (e) { if (e.target === this) closeModal(); });
+  $alert.on('click', function (e) { if (e.target === this) closeAlert(); });
 
-  // Перехватываем submit: та же отправка, своя модалка успеха
   $(document).off('submit', '#calcform');
   $('#calcform').on('submit', function (e) {
     e.preventDefault();
