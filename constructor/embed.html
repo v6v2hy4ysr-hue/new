@@ -8,8 +8,231 @@
   <link rel="stylesheet" href="embed.css">
 </head>
 <body>
-<div class="gradex-constructor-wrap wrap_calc container">
-<form id="calcform" method="post"><div class="row"><div class="col col-md-8 col-md-push-4"><div class="calc_images"><div class="i_pokritiye"><img src="assets/images/calc/i02.png"></div><div class="z_zokol"><img src="assets/images/calc/z00.png"></div><div class="h_ograda"><img src="assets/images/calc/h00.png"></div><div class="b_tumba"><img src="assets/images/calc/b01.png"></div><div class="a_stella"><img src="assets/images/calc/stella/a01p0pmg.png"></div><div class="c_tzvetnik"><img src="assets/images/calc/c00.png"></div><div class="d_nadgrob"><img src="assets/images/calc/d00.png"></div><div class="j_vaza"><img src="assets/images/calc/j00.png"></div><div class="r_risunk"><img src="assets/images/calc/ris/r00.png"></div><div class="e_krest"><img src="assets/images/calc/krest/k00.png"></div><div class="l_epitaph"><img src="assets/images/calc/ep/e00.png"></div></div></div><div class="col col-md-4 col-md-pull-8"><div id="zokol-select" class="form-group"> <label for="zokol">Цоколь</label> <select name="zokol" id="zokol" class="form-control"> <option class="text-muted" value="b01">Выбрать цоколь</option> <option value="z01">Гранитный</option> <option value="z02">Бетонный</option> </select> </div><div id="stella-select" class="form-group"> <label for="stella">Стелла</label> <select name="stella" id="stella" class="form-control"> <option class="text-muted" value="a01">Выберите стелу</option> <option value="a01">вертикальный косой</option> <option value="a02">вертикальный округлый сверху и сбоку</option> <option value="a03">вертикальный округлый</option> <option value="a04">вертикальный округлый с плечиками</option> <option value="a05">вертикальный округлый с плечиками, косой</option> <option value="a06">вертикальный флаг , косой</option> <option value="a07">вертикальный флаг</option> <option value="a08">горизонт флаг</option> <option value="a09">горизонт округлый</option> <option value="a10">вертикальный прямой маленький</option> <option value="a11">вертикальный прямой средний</option> <option value="a12">вертикальный прямой большой</option> <option value="a13">горизонт прямой маленький</option> <option value="a14">горизонт прямой средний</option> <option value="a15">горизонт прямой большой</option> <option value="a16">вертикальный фигурный</option> <option value="a17">вертикальный с березой</option> <option value="a18">вертикальный свеча</option> <option value="a19">вертикальный фигурный с крестом</option> </select> </div><div id="tumba-select" class="form-group"> <label for="tumba">Тумба</label> <select name="tumba" id="tumba" class="form-control"> <option class="text-muted" value="b01">Выбрать тумбу</option> <option value="b01">Стандартная</option> <option value="b02">Высокая</option> <option value="b03">Широкая</option> </select> </div><div id="tzvet-select" class="form-group"> <label for="tzvet">Цветник</label> <select name="tzvet" id="tzvet" class="form-control"> <option class="text-muted" value="c00">Выбрать цветник</option> <option value="c01">Цветник 100х50 10х8 из 3-х поребриков</option> <option value="c02">Цветник 100х50 10х8 из 4-х поребриков</option> </select> </div><div id="nadgrob-select" class="form-group"> <label for="nadgrob">Надгробная плита</label> <select name="nadgrob" id="nadgrob" class="form-control"> <option class="text-muted" value="d00">Без плиты</option> <option value="d01">Стандартная</option> <option value="d02">Короткая</option> <option value="d03">Фигурная</option> </select> </div><div id="pokritiye-select" class="form-group"> <label for="pokritiye">Покрытие</label> <select name="pokritiye" id="pokritiye" class="form-control"> <option class="text-muted" value="i02">Покрытие</option> <option value="i02">Гранитная плита</option> <option value="i03">Тротуарная плитка красная</option> <option value="i04">Тротуарная плитка серая</option> <option value="i05">Мраморная крошка</option> </select> </div><div id="vaza-select" class="form-group"> <label for="vaza">Ваза</label> <select name="vaza" id="vaza" class="form-control"> <option class="text-muted" value="j00">Ваза</option> <option value="j01">Ваза 15х15х30</option> <option value="j02">Ваза 12х12х25</option> </select> </div></div><div class="col col-xs-12"><div class="h4">Дополнительное оформление:</div><div class="row form-horizontal"><div class="col col-md-4"><div id="kresty-select" class="form-group"> <label for="kresty" class="control-label">Кресты</label> <select name="kresty" id="kresty" class="form-control"> <option class="text-muted" value="k00">Нет</option> <option value="kg">Крест 1</option> <option value="kp">Крест 2</option> </select> </div><div class="form-group"> <label for="risynki" class="control-label">Рисунки</label> <div id="risynki-select"> <select name="risynki" id="risynki" class="form-control"> <option class="text-muted" value="r00">Нет</option> <option value="r01">2 гвоздики</option> <option value="r02">2 розы</option> <option value="r03">Свеча и 2 гвоздики</option> <option value="r04">Свеча и 2 розы</option> </select> </div></div></div><div class="col col-md-8"><div class="form-group"> <label for="f_port" class="control-label">Портреты</label> <div class="row"><div id="f_port-select" class="col col-xs-6"> <select name="f_port" id="f_port" class="form-control"> <option class="text-muted" value="p0">Количество портретов</option> <option value="p1">1 портрет</option> <option value="p2">2 портрета</option> <option value="p2">Более 2-х</option> </select> </div><div id="f_portr_material-select" class="col col-xs-6"> <select name="f_portr_material" id="f_portr_material" class="form-control"> <option class="text-muted" value="pmg">Материал портретов</option> <option value="pmg">Гравировка</option> <option value="pmk">Керамика</option> </select> </div></div></div><div class="form-group"> <label for="hograda" class="control-label">Ограда</label> <div class="row"><div id="hograda-select" class="col col-xs-6"> <select name="hograda" id="hograda" class="form-control"> <option class="text-muted" value="h00">Выбрать ограду</option> <option value="h01">Стандартная</option> <option value="h02">Высокая</option> <option value="h03">Низкая</option> </select> </div><div id="hogradacolor-select" class="col col-xs-6"> <select name="hogradacolor" id="hogradacolor" class="form-control"> <option class="text-muted" value="hc02">Цвет</option> <option value="hc02">Черный</option> </select> </div></div></div></div><div class="col-xs-12"><div class="row"><div class="col col-md-4"><div class="form-group"> <label for="epitaph" class="control-label">Эпитафия</label> <div id="epitaph-select"> <select name="epitaph" id="epitaph" class="form-control"> <option class="text-muted" value="e00">Нет</option> <option value="e01">1 строчка</option> <option value="e02">2 строчки</option> </select> </div></div></div><div class="col col-md-8"><div class="form-group"> <label for="epitaph_text" class="control-label">Текст Эпитафии</label> <input id="epitaph_text" name="epitaph_text" type="text" class="form-control" disabled/> </div></div></div></div><div class="buttons clearfix text-right"> <input type="hidden" name="zokol-val"/> <input type="hidden" name="stella-val"/> <input type="hidden" name="tumba-val"/> <input type="hidden" name="tzvet-val"/> <input type="hidden" name="nadgrob-val"/> <input type="hidden" name="f_port-val"/> <input type="hidden" name="f_portr_material-val"/> <input type="hidden" name="hograda-val"/> <input type="hidden" name="hogradacolor-val"/> <input type="hidden" name="pokritiye-val"/> <input type="hidden" name="vaza-val"/> <input type="hidden" name="kresty-val"/> <input type="hidden" name="risynki-val"/> <input type="hidden" name="epitaph-val"/> <input type="hidden" name="i_pokritiye" value="/images/calc/i02.png"/> <input type="hidden" name="z_zokol" value="/images/calc/z00.png"/> <input type="hidden" name="h_ograda" value="/images/calc/h00.png"/> <input type="hidden" name="b_tumba" value="/images/calc/b01.png"/> <input type="hidden" name="a_stella" value="/images/calc/stella/a01p0pmg.png"/> <input type="hidden" name="c_tzvetnik" value="/images/calc/c00.png"/> <input type="hidden" name="d_nadgrob" value="/images/calc/d00.png"/> <input type="hidden" name="j_vaza" value="/images/calc/j00.png"/> <input type="hidden" name="r_risunk" value="/images/calc/ris/r00.png"/> <input type="hidden" name="e_krest" value="/images/calc/krest/k00.png"/> <input type="hidden" name="l_epitaph" value="/images/calc/ep/e00.png"/> <input type="hidden" name="action" value="manager"/> <button id="manager" type="button" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i> Отправить менеджеру</button> </div><div id="rdr-modal" class="iziModal"><div class="container-fluid"><div class="form-group"> <label for="name">Ваше имя:</label> <input name="name" id="name" class="form-control" type="text" placeholder="Василий" required/> </div><div class="form-group"> <label for="email">E mail:</label> <input name="email" id="email" class="form-control" type="email" placeholder="vasili@mail.ru" required/> </div><div class="form-group"> <label for="phone">Телефон:</label> <input name="phone" id="phone" class="form-control" type="tel" placeholder="8-900-999-99-99"/> </div><div class="form-group"> <label for="message">Примечание:</label> <textarea rows="3" name="message" id="message" class="form-control" placeholder="Например, надо разместить на памятнике 3 портрета + дополнительный рисунок на оборотной стороне"></textarea> </div><div class="buttons clearfix"> <button id="sendform" type="submit" onclick="try{yaCounter38341515.reachGoal('kalkul');}catch(e){} return true;" data-loading-text="Подождите..." class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i> Отправить</button> </div> <br/> </div> </div><div id="alertModal" class="iziModal" data-izimodal-group="alerts"></div></div></div></form>
+<div class="gradex-constructor-wrap wrap_calc">
+<form id="calcform" method="post">
+
+  <div class="embed-layout">
+    <div class="embed-preview">
+      <div class="calc_images">
+        <div class="i_pokritiye"><img src="assets/images/calc/i02.png" alt=""></div>
+        <div class="z_zokol"><img src="assets/images/calc/z00.png" alt=""></div>
+        <div class="h_ograda"><img src="assets/images/calc/h00.png" alt=""></div>
+        <div class="b_tumba"><img src="assets/images/calc/b01.png" alt=""></div>
+        <div class="a_stella"><img src="assets/images/calc/stella/a01p0pmg.png" alt=""></div>
+        <div class="c_tzvetnik"><img src="assets/images/calc/c00.png" alt=""></div>
+        <div class="d_nadgrob"><img src="assets/images/calc/d00.png" alt=""></div>
+        <div class="j_vaza"><img src="assets/images/calc/j00.png" alt=""></div>
+        <div class="r_risunk"><img src="assets/images/calc/ris/r00.png" alt=""></div>
+        <div class="e_krest"><img src="assets/images/calc/krest/k00.png" alt=""></div>
+        <div class="l_epitaph"><img src="assets/images/calc/ep/e00.png" alt=""></div>
+      </div>
+    </div>
+
+    <div class="embed-fields">
+      <div class="embed-grid">
+        <div id="zokol-select" class="form-group">
+          <label for="zokol">Цоколь</label>
+          <select name="zokol" id="zokol" class="form-control">
+            <option class="text-muted" value="b01">Выбрать цоколь</option>
+            <option value="z01">Гранитный</option>
+            <option value="z02">Бетонный</option>
+          </select>
+        </div>
+        <div id="stella-select" class="form-group">
+          <label for="stella">Стелла</label>
+          <select name="stella" id="stella" class="form-control">
+            <option class="text-muted" value="a01">Выберите стелу</option>
+            <option value="a01">вертикальный косой</option>
+            <option value="a02">вертикальный округлый сверху и сбоку</option>
+            <option value="a03">вертикальный округлый</option>
+            <option value="a04">вертикальный округлый с плечиками</option>
+            <option value="a05">вертикальный округлый с плечиками, косой</option>
+            <option value="a06">вертикальный флаг , косой</option>
+            <option value="a07">вертикальный флаг</option>
+            <option value="a08">горизонт флаг</option>
+            <option value="a09">горизонт округлый</option>
+            <option value="a10">вертикальный прямой маленький</option>
+            <option value="a11">вертикальный прямой средний</option>
+            <option value="a12">вертикальный прямой большой</option>
+            <option value="a13">горизонт прямой маленький</option>
+            <option value="a14">горизонт прямой средний</option>
+            <option value="a15">горизонт прямой большой</option>
+            <option value="a16">вертикальный фигурный</option>
+            <option value="a17">вертикальный с березой</option>
+            <option value="a18">вертикальный свеча</option>
+            <option value="a19">вертикальный фигурный с крестом</option>
+          </select>
+        </div>
+        <div id="tumba-select" class="form-group">
+          <label for="tumba">Тумба</label>
+          <select name="tumba" id="tumba" class="form-control">
+            <option class="text-muted" value="b01">Выбрать тумбу</option>
+            <option value="b01">Стандартная</option>
+            <option value="b02">Высокая</option>
+            <option value="b03">Широкая</option>
+          </select>
+        </div>
+        <div id="tzvet-select" class="form-group">
+          <label for="tzvet">Цветник</label>
+          <select name="tzvet" id="tzvet" class="form-control">
+            <option class="text-muted" value="c00">Выбрать цветник</option>
+            <option value="c01">Цветник 100х50 10х8 из 3-х поребриков</option>
+            <option value="c02">Цветник 100х50 10х8 из 4-х поребриков</option>
+          </select>
+        </div>
+        <div id="nadgrob-select" class="form-group">
+          <label for="nadgrob">Надгробная плита</label>
+          <select name="nadgrob" id="nadgrob" class="form-control">
+            <option class="text-muted" value="d00">Без плиты</option>
+            <option value="d01">Стандартная</option>
+            <option value="d02">Короткая</option>
+            <option value="d03">Фигурная</option>
+          </select>
+        </div>
+        <div id="pokritiye-select" class="form-group">
+          <label for="pokritiye">Покрытие</label>
+          <select name="pokritiye" id="pokritiye" class="form-control">
+            <option class="text-muted" value="i02">Покрытие</option>
+            <option value="i02">Гранитная плита</option>
+            <option value="i03">Тротуарная плитка красная</option>
+            <option value="i04">Тротуарная плитка серая</option>
+            <option value="i05">Мраморная крошка</option>
+          </select>
+        </div>
+        <div id="vaza-select" class="form-group">
+          <label for="vaza">Ваза</label>
+          <select name="vaza" id="vaza" class="form-control">
+            <option class="text-muted" value="j00">Ваза</option>
+            <option value="j01">Ваза 15х15х30</option>
+            <option value="j02">Ваза 12х12х25</option>
+          </select>
+        </div>
+        <div id="kresty-select" class="form-group">
+          <label for="kresty">Кресты</label>
+          <select name="kresty" id="kresty" class="form-control">
+            <option class="text-muted" value="k00">Нет</option>
+            <option value="kg">Крест 1</option>
+            <option value="kp">Крест 2</option>
+          </select>
+        </div>
+        <div id="risynki-select" class="form-group">
+          <label for="risynki">Рисунки</label>
+          <select name="risynki" id="risynki" class="form-control">
+            <option class="text-muted" value="r00">Нет</option>
+            <option value="r01">2 гвоздики</option>
+            <option value="r02">2 розы</option>
+            <option value="r03">Свеча и 2 гвоздики</option>
+            <option value="r04">Свеча и 2 розы</option>
+          </select>
+        </div>
+        <div id="f_port-select" class="form-group">
+          <label for="f_port">Портреты</label>
+          <select name="f_port" id="f_port" class="form-control">
+            <option class="text-muted" value="p0">Количество портретов</option>
+            <option value="p1">1 портрет</option>
+            <option value="p2">2 портрета</option>
+            <option value="p2">Более 2-х</option>
+          </select>
+        </div>
+        <div id="f_portr_material-select" class="form-group">
+          <label for="f_portr_material">Материал портретов</label>
+          <select name="f_portr_material" id="f_portr_material" class="form-control">
+            <option class="text-muted" value="pmg">Материал портретов</option>
+            <option value="pmg">Гравировка</option>
+            <option value="pmk">Керамика</option>
+          </select>
+        </div>
+        <div id="hograda-select" class="form-group">
+          <label for="hograda">Ограда</label>
+          <select name="hograda" id="hograda" class="form-control">
+            <option class="text-muted" value="h00">Выбрать ограду</option>
+            <option value="h01">Стандартная</option>
+            <option value="h02">Высокая</option>
+            <option value="h03">Низкая</option>
+          </select>
+        </div>
+        <div id="hogradacolor-select" class="form-group">
+          <label for="hogradacolor">Цвет ограды</label>
+          <select name="hogradacolor" id="hogradacolor" class="form-control">
+            <option class="text-muted" value="hc02">Цвет</option>
+            <option value="hc02">Черный</option>
+          </select>
+        </div>
+        <div id="epitaph-select" class="form-group">
+          <label for="epitaph">Эпитафия</label>
+          <select name="epitaph" id="epitaph" class="form-control">
+            <option class="text-muted" value="e00">Нет</option>
+            <option value="e01">1 строчка</option>
+            <option value="e02">2 строчки</option>
+          </select>
+        </div>
+        <div class="form-group embed-span-2">
+          <label for="epitaph_text">Текст эпитафии</label>
+          <input id="epitaph_text" name="epitaph_text" type="text" class="form-control" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="embed-actions">
+    <input type="hidden" name="zokol-val"/>
+    <input type="hidden" name="stella-val"/>
+    <input type="hidden" name="tumba-val"/>
+    <input type="hidden" name="tzvet-val"/>
+    <input type="hidden" name="nadgrob-val"/>
+    <input type="hidden" name="f_port-val"/>
+    <input type="hidden" name="f_portr_material-val"/>
+    <input type="hidden" name="hograda-val"/>
+    <input type="hidden" name="hogradacolor-val"/>
+    <input type="hidden" name="pokritiye-val"/>
+    <input type="hidden" name="vaza-val"/>
+    <input type="hidden" name="kresty-val"/>
+    <input type="hidden" name="risynki-val"/>
+    <input type="hidden" name="epitaph-val"/>
+    <input type="hidden" name="i_pokritiye" value="/images/calc/i02.png"/>
+    <input type="hidden" name="z_zokol" value="/images/calc/z00.png"/>
+    <input type="hidden" name="h_ograda" value="/images/calc/h00.png"/>
+    <input type="hidden" name="b_tumba" value="/images/calc/b01.png"/>
+    <input type="hidden" name="a_stella" value="/images/calc/stella/a01p0pmg.png"/>
+    <input type="hidden" name="c_tzvetnik" value="/images/calc/c00.png"/>
+    <input type="hidden" name="d_nadgrob" value="/images/calc/d00.png"/>
+    <input type="hidden" name="j_vaza" value="/images/calc/j00.png"/>
+    <input type="hidden" name="r_risunk" value="/images/calc/ris/r00.png"/>
+    <input type="hidden" name="e_krest" value="/images/calc/krest/k00.png"/>
+    <input type="hidden" name="l_epitaph" value="/images/calc/ep/e00.png"/>
+    <input type="hidden" name="action" value="manager"/>
+    <button id="manager" type="button" class="btn btn-success">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i> Отправить менеджеру
+    </button>
+  </div>
+
+  <div id="rdr-modal" class="iziModal">
+    <div class="container-fluid">
+      <div class="form-group">
+        <label for="name">Ваше имя:</label>
+        <input name="name" id="name" class="form-control" type="text" placeholder="Василий" required/>
+      </div>
+      <div class="form-group">
+        <label for="email">E mail:</label>
+        <input name="email" id="email" class="form-control" type="email" placeholder="vasili@mail.ru" required/>
+      </div>
+      <div class="form-group">
+        <label for="phone">Телефон:</label>
+        <input name="phone" id="phone" class="form-control" type="tel" placeholder="8-900-999-99-99"/>
+      </div>
+      <div class="form-group">
+        <label for="message">Примечание:</label>
+        <textarea rows="3" name="message" id="message" class="form-control" placeholder="Например, надо разместить на памятнике 3 портрета + дополнительный рисунок на оборотной стороне"></textarea>
+      </div>
+      <div class="buttons clearfix">
+        <button id="sendform" type="submit" onclick="try{yaCounter38341515.reachGoal('kalkul');}catch(e){} return true;" data-loading-text="Подождите..." class="btn btn-success pull-right">
+          <i class="fa fa-paper-plane" aria-hidden="true"></i> Отправить
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="alertModal" class="iziModal" data-izimodal-group="alerts"></div>
+</form>
 </div>
 <script src="script.js"></script>
 </body>
