@@ -1,33 +1,42 @@
 /* Tilda Zero Block: fixed 780×575 */
+/* 780×575 — как оригинал grad-ex: слева селекты, справа превью, внизу доп. опции */
 html, body {
   margin: 0 !important;
   padding: 0 !important;
-  width: 780px !important;
+
+[1 line collapsed]
+
   height: 575px !important;
   overflow: hidden !important;
   background: #f4f2ef !important;
+  font-family: Roboto, Arial, Helvetica, sans-serif !important;
+  color: #222;
 }
-
 body > .gradex-constructor-wrap {
+.gradex-constructor-wrap {
   width: 780px !important;
   max-width: 780px !important;
   height: 575px !important;
   margin: 0 !important;
   padding: 8px !important;
   overflow: hidden !important;
+  padding: 10px 12px 8px !important;
   box-sizing: border-box !important;
   background: #f4f2ef !important;
+  overflow: hidden !important;
 }
-
 #calcform {
   height: 559px;
+  height: 100%;
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
   background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   box-sizing: border-box;
 }
-
 #calcform > .row {
   display: grid !important;
   grid-template-columns: 292px 1fr;
@@ -36,8 +45,14 @@ body > .gradex-constructor-wrap {
   margin: 0 !important;
   height: 100%;
   width: 100%;
+/* ===== TOP: controls | preview ===== */
+.embed-top {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+  align-items: start;
+  flex: 0 0 auto;
 }
-
 /* Preview */
 #calcform > .row > .col-md-8.col-md-push-4 {
   grid-column: 1;
@@ -47,16 +62,22 @@ body > .gradex-constructor-wrap {
   left: auto !important;
   right: auto !important;
   position: relative !important;
+.embed-controls .form-group {
+  margin: 0 0 6px !important;
   padding: 0 !important;
   margin: 0 !important;
   overflow: hidden;
 }
-
 /* Main selects */
 #calcform > .row > .col-md-4.col-md-pull-8 {
   grid-column: 2;
   grid-row: 1;
   width: auto !important;
+.embed-controls .form-group:last-child {
+  margin-bottom: 0 !important;
+}
+.embed-controls label {
+  display: block !important;
   float: none !important;
   left: auto !important;
   right: auto !important;
@@ -66,155 +87,91 @@ body > .gradex-constructor-wrap {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  width: 100% !important;
+  margin: 0 0 2px !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  color: #111;
 }
-
 /* Extra options + submit */
 #calcform > .row > .col-xs-12 {
   grid-column: 1 / -1;
   grid-row: 2;
   width: auto !important;
+.embed-preview .calc_images {
   float: none !important;
   padding: 4px 0 0 !important;
   margin: 0 !important;
   overflow-x: hidden;
   overflow-y: auto;
   border-top: 1px solid #ddd;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 6px !important;
+  background: #fff;
 }
-
 #calcform .calc_images {
+.embed-preview .calc_images > div > img {
+  max-height: 268px;
+  width: auto;
+  max-width: 100%;
+}
+.embed-preview .calcform_descr {
   float: none !important;
   max-width: 100% !important;
   width: 100% !important;
   margin: 0 !important;
   background: #fff;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  color: #333;
 }
-
 #calcform .calcform_descr,
 #calcform br.clearfix {
   display: none !important;
+.embed-preview .calcform_descr p {
+  margin: 0 0 2px !important;
 }
-
 #calcform .form-group {
   clear: both !important;
   margin: 0 0 5px !important;
-  padding: 0 !important;
+.windowConstr {
+  cursor: pointer;
+  text-decoration: underline;
 }
-
+/* ===== BOTTOM: additional ===== */
+.embed-extra {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.embed-extra > .h4 {
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #111;
+}
 #calcform label,
 #calcform .control-label {
   float: none !important;
+.embed-extra-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+  align-items: end;
+}
+.embed-extra-grid .form-group {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.embed-extra-grid label {
   display: block !important;
+  float: none !important;
   width: 100% !important;
   text-align: left !important;
   font-size: 11px !important;
   line-height: 1.15 !important;
   margin: 0 0 2px !important;
-  padding: 0 !important;
-  font-weight: 600;
-}
-
-#calcform .nice-select,
-#calcform select.form-control,
-#calcform .form-control {
-  float: none !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: 26px !important;
-  min-height: 26px !important;
-  line-height: 26px !important;
-  font-size: 12px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  padding-left: 8px !important;
-  padding-right: 22px !important;
-  margin: 0 !important;
-}
-
-#calcform .nice-select:after {
-  top: 12px !important;
-}
-
-#calcform .nice-select .list {
-  max-height: 160px;
-  overflow-y: auto;
-  width: 100%;
-}
-
-#calcform .nice-select .option {
-  line-height: 26px;
-  min-height: 26px;
-  font-size: 12px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-#calcform .h4 {
-  font-size: 12px !important;
-  margin: 0 0 4px !important;
-  padding: 0 !important;
-}
-
-#calcform .col-sm-2,
-#calcform .col-sm-4,
-#calcform .col-sm-8,
-#calcform .col-sm-10,
-#calcform .col-xs-6,
-#calcform .col-md-4,
-#calcform .col-md-8 {
-  width: 100% !important;
-  float: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  left: auto !important;
-  right: auto !important;
-  position: relative !important;
-}
-
-#calcform .form-horizontal .row,
-#calcform .col-xs-12 .row {
-  margin: 0 !important;
-}
-
-#calcform .col-xs-12 .form-group {
-  margin-bottom: 4px !important;
-}
-
-#calcform .buttons {
-  text-align: right !important;
-  margin: 4px 0 0 !important;
-  clear: both !important;
-}
-
-#calcform button#manager,
-.wrap_calc button#manager {
-  float: none !important;
-  width: auto !important;
-  max-width: none !important;
-  height: 32px !important;
-  padding: 0 16px !important;
-  font-size: 12px !important;
-  border-radius: 16px !important;
-  margin: 0 !important;
-  line-height: 32px !important;
-}
-
-#calcform .col-xs-12 .form-horizontal {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px 10px;
-}
-
-#calcform .col-xs-12 .form-horizontal > .col-md-4,
-#calcform .col-xs-12 .form-horizontal > .col-md-8 {
-  width: auto !important;
-}
-
-#calcform .col-xs-12 > .row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px 10px;
-}
-
-.iziModal {
-  max-width: 740px !important;
-}
